@@ -103,6 +103,18 @@ LayerFactoryDefine(9);
 
 PYBIND11_MODULE(ncnn, m)
 {
+    m.def("sepa",
+    []() {
+        return std::string("SEPA");
+    }
+    );
+
+    m.def("welcome",
+    []() {
+        return std::string("SEPA Computation Engine -Vulkan/CPU/NCNN- V2022.07.12-02:55 [Private Version]");
+    }
+    );
+
     auto atexit = py::module_::import("atexit");
     atexit.attr("register")(py::cpp_function([]() {
         for (int i = 0; i < g_layer_factroys.size(); i++)
@@ -1344,6 +1356,7 @@ PYBIND11_MODULE(ncnn, m)
     .def("driver_version", &GpuInfo::driver_version)
     .def("vendor_id", &GpuInfo::vendor_id)
     .def("device_id", &GpuInfo::device_id)
+    .def("device_name",&GpuInfo::device_name)
     .def("pipeline_cache_uuid", [](GpuInfo& gpuinfo) {
         return py::memoryview::from_buffer(gpuinfo.pipeline_cache_uuid(), {VK_UUID_SIZE}, {sizeof(uint8_t) * VK_UUID_SIZE});
     })
