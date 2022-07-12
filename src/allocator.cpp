@@ -384,7 +384,7 @@ VkBuffer VkAllocator::create_buffer(size_t size, VkBufferUsageFlags usage)
     if (ret != VK_SUCCESS)
     {
         NCNN_LOGE("vkCreateBuffer failed %d", ret);
-        throw std::runtime_error("[OOM] VkBuffer VkAllocator::create_buffer(size_t size, VkBufferUsageFlags usage)");
+        throw std::runtime_error("[OOM] VkBuffer VkAllocator::create_buffer .");
         return 0;
     }
 
@@ -404,7 +404,7 @@ VkDeviceMemory VkAllocator::allocate_memory(size_t size, uint32_t memory_type_in
     if (ret != VK_SUCCESS)
     {
         NCNN_LOGE("vkAllocateMemory failed %d", ret);
-        throw std::runtime_error("[OOM] VkDeviceMemory VkAllocator::allocate_memory(size_t size, uint32_t memory_type_index)");
+        throw std::runtime_error("[OOM] VkDeviceMemory VkAllocator::allocate_memory .");
         return 0;
     }
 
@@ -431,7 +431,7 @@ VkDeviceMemory VkAllocator::allocate_dedicated_memory(size_t size, uint32_t memo
     if (ret != VK_SUCCESS)
     {
         NCNN_LOGE("vkAllocateMemory failed %d", ret);
-        throw std::runtime_error("[OOM] VkDeviceMemory VkAllocator::allocate_dedicated_memory(size_t size, uint32_t memory_type_index, VkImage image, VkBuffer buffer)");
+        throw std::runtime_error("[OOM] VkDeviceMemory VkAllocator::allocate_dedicated_memory .");
         return 0;
     }
 
@@ -1907,7 +1907,7 @@ VkImageMemory* VkAndroidHardwareBufferImageAllocator::fastMalloc(int /*w*/, int 
     if (ret != VK_SUCCESS)
     {
         NCNN_LOGE("vkAllocateMemory failed %d", ret);
-        throw std::runtime_error("[OOM] VkImageMemory* VkAndroidHardwareBufferImageAllocator::fastMalloc(int /*w*/, int /*h*/, int /*c*/, size_t /*elemsize*/, int /*elempack*/)");
+        throw std::runtime_error("[OOM] VkImageMemory* VkAndroidHardwareBufferImageAllocator::fastMalloc .");
         return 0;
     }
 
